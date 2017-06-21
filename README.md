@@ -21,27 +21,28 @@ and open [`CloneProcessing.cs`](https://github.com/JurgenCox/perseus-plugins/blo
 
 3. Open Visual Stuido and create a new project of type `Class Library (.Net Framework)`. Rename the default `Class1.cs` to `HeadProcessing.cs` and copy
 the code from `CloneProcessing.cs` into it. You will see lots of errors which we will fix momentarily. The errors are due to
-missing dependencies. As you can see from the `using` statements at the top of the file we require the Perseus plugin API.
+missing dependencies. You can see from the `using` statements at the top of the file that we require the Perseus plugin API.
 
-4. Add dependencies: Right-click on your `PluginTutorial` solution and choose `Manage NuGet Packages for Solution...`. In the `Browse` tab search for `PerseusApi`
+4. To add the dependencies right-click on your `PluginTutorial` solution and choose `Manage NuGet Packages for Solution...`. In the `Browse` tab search for `PerseusApi`
 and install it for `PluginTutorial`. `PerseusApi` and its dependency `BaseLibS` will now be added to your project.
 
 5. There are only a few things left to do before we can try our new plugin. Correct the namespace to `namespace PluginTutorial` and the class to `class HeadProcessing`.
 Set the `DisplayImage => null` and adjust all other strings in the class.
-Now you can build the solution. Navigate to the `/bin/Debug` folder and copy the `PluginTutorial.dll` to the Perseus folder. Run perseus, generate
-some random data and try the plugin. [commit `96ce38c2`]
+Now you can build the solution. Use the Windows File Explorer to navigate to the `PluginTutorial/bin/Debug` folder and copy the `PluginTutorial.dll` to the Perseus folder.
+Start Perseus, generate some random data and try your plugin. [commit `96ce38c2`]
 
-6. Now we need to implement the functionality we need. We can look for inspiration in the [filter random rows](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs)
+6. Now we need to implement the actual functionality. We can look for inspiration in the [filter random rows](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs)
 processing. We can see a call to [`PerseusPluginUtils.FilterRows(...)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L43)
 which is turn uses [`mdata.ExtractRows(rows)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Utils/PerseusPluginUtils.cs#L50).
-We can utilize the same function to implement our plugin! [commit `3e3b020b`]
+We can utilize the same function to implement our plugin!
 
 	```csharp
 	var numberOfRows = 10;
 	var indices = Enumerable.Range(0, numberOfRows).ToArray();
 	mdata.ExtractRows(indices);
 	```
-	Make sure to build your solution and try out your now functional plugin!
+	Make sure to build your solution and try out your now functional plugin! [commit `3e3b020b`]
+
 7. As a last step we should add a parameter to let us choose how many rows we would like to keep. Again we take inspiration from the same existing filter random rows plugin.
 In its `GetParameters(...)` function it's initializing a [`IntParam`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L34).
 To obtain its value it is extracting the parameter in the [`ProcessData`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L39) function.
