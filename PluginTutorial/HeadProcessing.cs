@@ -1,4 +1,5 @@
-﻿using BaseLibS.Graph;
+﻿using System.Linq;
+using BaseLibS.Graph;
 using BaseLibS.Param;
 using PerseusApi.Document;
 using PerseusApi.Generic;
@@ -30,7 +31,11 @@ namespace PluginTutorial
 
         public void ProcessData(IMatrixData mdata, Parameters param, ref IMatrixData[] supplTables,
             ref IDocumentData[] documents, ProcessInfo processInfo)
-        { }
+        {
+            var numberOfRows = 10;
+            var indices = Enumerable.Range(0, numberOfRows).ToArray();
+            mdata.ExtractRows(indices);
+        }
 
         public Parameters GetParameters(IMatrixData mdata, ref string errorString)
         {
