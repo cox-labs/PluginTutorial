@@ -32,14 +32,14 @@ namespace PluginTutorial
         public void ProcessData(IMatrixData mdata, Parameters param, ref IMatrixData[] supplTables,
             ref IDocumentData[] documents, ProcessInfo processInfo)
         {
-            var numberOfRows = 10;
+            var numberOfRows = param.GetParam<int>("Number of rows").Value;
             var indices = Enumerable.Range(0, numberOfRows).ToArray();
             mdata.ExtractRows(indices);
         }
 
         public Parameters GetParameters(IMatrixData mdata, ref string errorString)
         {
-            return new Parameters(new Parameter[] { });
+            return new Parameters(new IntParam("Number of rows", 10));
         }
     }
 }

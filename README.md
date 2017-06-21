@@ -28,10 +28,26 @@ some random data and try the plugin. [commit `96ce38c2`]
 6. Now we need to implement the functionality we need. We can look for inspiration in the [filter random rows](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs)
 processing. We can see a call to [`PerseusPluginUtils.FilterRows(...)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L43)
 which is turn uses [`mdata.ExtractRows(rows)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Utils/PerseusPluginUtils.cs#L50).
-We can utilize the same function to implement our plugin!
+We can utilize the same function to implement our plugin! [commit `3e3b020b`]
 
-```csharp
-var numberOfRows = 10;
-var indices = Enumerable.Range(0, numberOfRows).ToArray();
-mdata.ExtractRows(indices);
-```
+	```csharp
+	var numberOfRows = 10;
+	var indices = Enumerable.Range(0, numberOfRows).ToArray();
+	mdata.ExtractRows(indices);
+	```
+
+7. Next we should add a parameter to let us choose how many rows we would like to keep. Again we take inspiration from the same existing filter random rows plugin.
+In its `GetParameters(...)` function it's initializing a [`IntParam`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L34).
+To obtain its value it is extracting the parameter in the [`ProcessData`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L39) function.
+We can again utilize this in our plugin by creating our parameter in our `GetParameters` function:
+	```csharp
+	return new Parameters(new IntParam("Number of rows", 10));
+	```
+	And using it in the `ProcessData` function:
+
+	```csharp
+	var numberOfRows = param.GetParam<int>("Number of rows").Value;
+	var indices = Enumerable.Range(0, numberOfRows).ToArray();
+	mdata.ExtractRows(indices);
+	```
+
