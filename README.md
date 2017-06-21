@@ -1,60 +1,23 @@
-﻿# PluginTutorial
+﻿# Plugin Tutorial
 
 MQ Summer School tutorial for Perseus plugin development.
+The plugin development tutorial consists of two parts.
 
-## Overview
+# C# plugin API
 
+Most functionality in Perseus is implemented in C#, by following the plugin API
+([see online](https://github.com/jurgencox/perseus-plugins)).
 We will develop our own simple plugin by modifying the most simple existing plugin (clone matrix).
-In the end the plugin will allow you to extract a number of rows from the top of the matrix as specified
+In the end the plugin will allow us to extract a number of rows from the top of the matrix as specified
 by a parameter.
 
-Reading existing code and modifying it is the fastes way to learning plugin development.
-This way we can not only understand how things work but also easily reuse existing functionality for our needs.
+Navigate to the [`/PluginTutorial`](PluginTutorial) folder for more information.
 
-## Step by step
+# Script plugins using PluginInterop
 
-1. Go to [perseus-plugins](https://github.com/jurgencox/perseus-plugins) github repository. The code for the plugin API
-(`PerseusApi`) and for a number of Perseus plugins (`PerseusPluginLib`) is hosted here.
+Recently we have started to develop a light-weight approach to plugin programming.
+We aim to enable you to use popular scripting languages such as R and Python
+from within Perseus. We will see, how to implement the same functionality as before
+in R and Python instead of C#.
 
-2. Find the `CloneProcessing.cs` class which we will use as our template. Use the search or navigate to `/PerseusPluginLib/Basic`
-and open [`CloneProcessing.cs`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Basic/CloneProcessing.cs)
-
-3. Open Visual Stuido and create a new project of type `Class Library (.Net Framework)`. Rename the default `Class1.cs` to `HeadProcessing.cs` and copy
-the code from `CloneProcessing.cs` into it. You will see lots of errors which we will fix momentarily. The errors are due to
-missing dependencies. You can see from the `using` statements at the top of the file that we require the Perseus plugin API.
-
-4. To add the dependencies right-click on your `PluginTutorial` solution and choose `Manage NuGet Packages for Solution...`. In the `Browse` tab search for `PerseusApi`
-and install it for `PluginTutorial`. `PerseusApi` and its dependency `BaseLibS` will now be added to your project.
-
-5. There are only a few things left to do before we can try our new plugin. Correct the namespace to `namespace PluginTutorial` and the class to `class HeadProcessing`.
-Set the `DisplayImage => null` and adjust all other strings in the class.
-Now you can build the solution. Use the Windows File Explorer to navigate to the `PluginTutorial/bin/Debug` folder and copy the `PluginTutorial.dll` to the Perseus folder.
-Start Perseus, generate some random data and try your plugin. [commit `96ce38c2`]
-
-6. Now we need to implement the actual functionality. We can look for inspiration in the [filter random rows](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs)
-processing. We can see a call to [`PerseusPluginUtils.FilterRows(...)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L43)
-which is turn uses [`mdata.ExtractRows(rows)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Utils/PerseusPluginUtils.cs#L50).
-We can utilize the same function to implement our plugin!
-
-	```csharp
-	var numberOfRows = 10;
-	var indices = Enumerable.Range(0, numberOfRows).ToArray();
-	mdata.ExtractRows(indices);
-	```
-	Make sure to build your solution and try out your now functional plugin! [commit `3e3b020b`]
-
-7. As a last step we should add a parameter to let us choose how many rows we would like to keep. Again we take inspiration from the same existing filter random rows plugin.
-In its `GetParameters(...)` function it's initializing a [`IntParam`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L34).
-To obtain its value it is extracting the parameter in the [`ProcessData`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L39) function.
-We can again utilize this in our plugin by creating our parameter in our `GetParameters` function:
-	```csharp
-	return new Parameters(new IntParam("Number of rows", 10));
-	```
-	And using it in the `ProcessData` function:
-
-	```csharp
-	var numberOfRows = param.GetParam<int>("Number of rows").Value;
-	var indices = Enumerable.Range(0, numberOfRows).ToArray();
-	mdata.ExtractRows(indices);
-	```
-	Build your solution another time and check to see that the parameters are handled correctly!
+Navigate to the [`/scripts`](scripts) folder for more information.
