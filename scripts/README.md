@@ -14,7 +14,7 @@ given on their websites.
 
 ## Step by step
 
-1. Copy `PluginInterop.dll` to your Perseus installation.
+1. Follow the [installation instructions](https://github.com/jdrudolph/PluginInterop/) and add `PluginInterop.dll` to your Perseus installation.
 
 2. Write a script file in your language of choice. For examples check the `/scripts`
 folder and the package websites.
