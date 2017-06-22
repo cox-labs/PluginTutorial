@@ -4,7 +4,6 @@ from perseuspy.parameters import *
 
 _, paramfile, infile, outfile = sys.argv
 df = pd.read_perseus(infile)
-parameters = parse_parameters(paramfile)
-number_of_rows = intParam(parameters, 'Number of rows')
+number_of_rows = 15
 result = df.head(number_of_rows)
 result.to_perseus(outfile)
