@@ -17,7 +17,7 @@ This way we can not only understand how things work but also easily reuse existi
 2. Find the `CloneProcessing.cs` class which we will use as our template. Use the search or navigate to `/PerseusPluginLib/Basic`
 and open [`CloneProcessing.cs`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Basic/CloneProcessing.cs)
 
-3. Open Visual Stuido and create a new project of type `Class Library (.Net Framework)`. Rename the default `Class1.cs` to `HeadProcessing.cs` and copy
+3. Open Visual Studio and create a new project of type `Class Library (.Net Framework)` and name it `PluginTutorial`. Rename the default `Class1.cs` to `HeadProcessing.cs` and copy
 the code from `CloneProcessing.cs` into it. You will see lots of errors which we will fix momentarily. The errors are due to
 missing dependencies. You can see from the `using` statements at the top of the file that we require the Perseus plugin API.
 
@@ -29,7 +29,7 @@ Set the `DisplayImage => null` and adjust all other strings in the class.
 Now you can build the solution. Use the Windows File Explorer to navigate to the `PluginTutorial/bin/Debug` folder and copy the `PluginTutorial.dll` to the Perseus folder.
 Start Perseus, generate some random data and try your plugin. [commit `96ce38c2`]
 
-6. Now we need to implement the actual functionality. We can look for inspiration in the [filter random rows](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs)
+6. Now we need to implement the actual functionality in the [`ProcessData(..)`] method. We can look for inspiration in the [filter random rows](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs)
 processing. We can see a call to [`PerseusPluginUtils.FilterRows(...)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Filter/FilterRandomRows.cs#L43)
 which is turn uses [`mdata.ExtractRows(rows)`](https://github.com/JurgenCox/perseus-plugins/blob/master/PerseusPluginLib/Utils/PerseusPluginUtils.cs#L50).
 We can utilize the same function to implement our plugin!
