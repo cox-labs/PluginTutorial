@@ -8,9 +8,7 @@ inFile <- args[2]
 outFile <- args[3]
 # import PerseusR
 library(PerseusR)
-# extract parameters
-parameters <- parseParameters(paramFile)
-numberOfRows <- intParamValue(parameters, "Number of rows")
+numberOfRows <- 15
 # read data
 mdata <- read.perseus(inFile)
 # extract top rows
