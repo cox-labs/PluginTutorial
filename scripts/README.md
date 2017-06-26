@@ -5,14 +5,34 @@ for using and programming light-weight plugins for Perseus by using external
 scripting languages such as R or Python.
 
 We developed packages in the R and Python languages which allow them to easily
-process Perseus data structures. Please make sure
-to have these packages installed on your machine by following the instructions
-given on their websites.
+process Perseus data structures. Please refer to their websites for more information.
 
 * **R**: [PerseusR](https://github.com/jdrudolph/perseusr).
 * **Python**: [perseuspy](https://github.com/jdrudolph/perseuspy).
 
-## Step by step
+## Requirements / Installation
+
+In order to run external scripts from within Perseus we need to install
+(i) the scripting language we want to use, and (ii) the interop package for each language.
+
+### Python
+
+We recommend installing the [Anaconda Python distribution](https://www.continuum.io/downloads)
+(Python 3.X 64bit). In the installer make sure to enable the option to add Python to your
+`PATH`.
+
+Next you should install the `perseuspy` module.
+If `python` is in your `PATH` you should be able to open a Command Prompt (search for `cmd.exe`) and
+type in the installation instructions from the [`perseuspy` website](https://github.com/jdrudolph/perseuspy).
+
+### R
+
+First install the latest version of [R](https://cran.rstudio.com/bin/windows/base/). We recommend
+to additionally install [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/).
+
+Next install the `PerseusR` package. Open R Studio and enter the instructions on the [website](https://github.com/jdrudolph/perseusr) into the running `R` session.
+
+## Usage: Step by step
 
 1. Follow the [installation instructions](https://github.com/jdrudolph/PluginInterop/) and add `PluginInterop.dll` to your Perseus installation.
 

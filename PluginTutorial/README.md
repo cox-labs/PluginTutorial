@@ -9,6 +9,12 @@ by a parameter.
 Reading existing code and modifying it is the fastes way to learning plugin development.
 This way we can not only understand how things work but also easily reuse existing functionality for our needs.
 
+## Requirements
+
+Download the latest version of [Visual Studio Community Edition](https://www.visualstudio.com/downloads/).
+Select the `.Net Desktop Development` workflow in the installer to install
+everything required.
+
 ## Step by step
 
 1. Go to [perseus-plugins](https://github.com/jurgencox/perseus-plugins) github repository. The code for the plugin API
@@ -57,7 +63,7 @@ We can again utilize this in our plugin by creating our parameter in our `GetPar
 	```
 	Build your solution another time and check to see that the parameters are handled correctly!
 
-## What to do next
+## Next steps
 
 ### Error handling
 Error handling can be implemented via the `ProcessInfo` object passed to both the `GetParameters` and the `ProcessData` functions.

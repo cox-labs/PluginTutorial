@@ -1,9 +1,10 @@
 ﻿# Plugin Tutorial
 
 MQ Summer School tutorial for Perseus plugin development.
-The plugin development tutorial consists of two parts.
+The plugin development tutorial consists of two parts. Make sure
+to have all the requirements installed.
 
-# C# plugin API
+## C# plugin API
 
 Most functionality in Perseus is implemented in C#, by following the plugin API
 ([see online](https://github.com/jurgencox/perseus-plugins)).
@@ -13,7 +14,14 @@ by a parameter.
 
 Navigate to the [`/PluginTutorial`](PluginTutorial) folder for more information.
 
-# Script plugins using PluginInterop
+### Requirements
+
+For C# development we recommend the latest version of
+[Visual Studio Community Edition](https://www.visualstudio.com/downloads/).
+Select the `.Net Desktop Development` workflow in the installer to install
+everything we need.
+
+## Script plugins using PluginInterop
 
 Recently we have started to develop a light-weight approach to plugin programming.
 We aim to enable you to use popular scripting languages such as R and Python
@@ -21,3 +29,25 @@ from within Perseus. We will see, how to implement the same functionality as bef
 in R and Python instead of C#.
 
 Navigate to the [`/scripts`](scripts) folder for more information.
+
+### Requirements
+
+In order to run external scripts from within Perseus we need to install
+(i) the scripting language we want to use, and (ii) the interop package for each language.
+
+#### Python
+
+We recommend installing the [Anaconda Python distribution](https://www.continuum.io/downloads)
+(Python 3.X 64bit). In the installer make sure to enable the option to add Python to your
+`PATH`.
+
+Next you should install the `perseuspy` module.
+If `python` is in your `PATH` you should be able to open a Command Prompt (search for `cmd.exe`) and
+type in the installation instructions from the [`perseuspy` website](https://github.com/jdrudolph/perseuspy).
+
+#### R
+
+First install the latest version of [R](https://cran.rstudio.com/bin/windows/base/). We recommend
+to additionally install [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/).
+
+Next install the `PerseusR` package. Open R Studio and enter the instructions on the [website](https://github.com/jdrudolph/perseusr) into the running `R` session.
