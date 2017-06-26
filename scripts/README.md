@@ -12,8 +12,13 @@ process Perseus data structures. Please refer to their websites for more informa
 
 ## Requirements / Installation
 
-In order to run external scripts from within Perseus we need to install
-(i) the scripting language we want to use, and (ii) the interop package for each language.
+In order to run external scripts from within Perseus we need to install (i)
+`PluginInterop`, (ii) the scripting language we want to use, and (iii) the
+interop package for each language.
+
+First follow the [`Plugin Interop` installation instructions](https://github.com/jdrudolph/PluginInterop/)
+and add `PluginInterop.dll` to your Perseus installation. The next steps
+depend on the scriting language you intend to use.
 
 ### Python
 
@@ -23,22 +28,21 @@ We recommend installing the [Anaconda Python distribution](https://www.continuum
 
 Next you should install the `perseuspy` module.
 If `python` is in your `PATH` you should be able to open a Command Prompt (search for `cmd.exe`) and
-type in the installation instructions from the [`perseuspy` website](https://github.com/jdrudolph/perseuspy).
+type-in the installation instructions from the [`perseuspy` website](https://github.com/jdrudolph/perseuspy).
 
 ### R
 
 First install the latest version of [R](https://cran.rstudio.com/bin/windows/base/). We recommend
 to additionally install [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/).
 
-Next install the `PerseusR` package. Open R Studio and enter the instructions on the [website](https://github.com/jdrudolph/perseusr) into the running `R` session.
+Next, install the `PerseusR` package. First open R Studio and then,
+enter the instructions on the [website](https://github.com/jdrudolph/perseusr) into the running `R` session.
 
 ## Usage: Step by step
 
-1. Follow the [installation instructions](https://github.com/jdrudolph/PluginInterop/) and add `PluginInterop.dll` to your Perseus installation.
-
-2. Write a script file in your language of choice. For examples check the `/scripts`
+1. Write a script file in your language of choice. For examples check the `/scripts`
 folder and the package websites.
 
-3. Open Perseus and create a random data matrix. In the `External` menu you
+2. Open Perseus and create a random data matrix. In the `External` menu you
 will find processing activities for both `R` and `Python`.
 

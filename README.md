@@ -16,10 +16,7 @@ Navigate to the [`/PluginTutorial`](PluginTutorial) folder for more information.
 
 ### Requirements
 
-For C# development we recommend the latest version of
-[Visual Studio Community Edition](https://www.visualstudio.com/downloads/).
-Select the `.Net Desktop Development` workflow in the installer to install
-everything we need.
+See in [`PluginTutorial` README](PluginTutorial#requirements).
 
 ## Script plugins using PluginInterop
 
@@ -32,8 +29,7 @@ Navigate to the [`/scripts`](scripts) folder for more information.
 
 ### Requirements
 
-In order to run external scripts from within Perseus we need to install
-(i) the scripting language we want to use, and (ii) the interop package for each language.
+See in [`scripts` README](/scripts#requirements--installation).
 
 #### Python
 
