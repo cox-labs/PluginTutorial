@@ -22,7 +22,7 @@ See in [`PluginTutorial` README](PluginTutorial#requirements).
 
 Besides the plugin in this repository you can check out:
 
-* [PluginUpperCase](https://github.com/jdrudolph/PluginTutorial) simple plugin to change all strings to upper case.
+* [PluginUpperCase](https://github.com/jdrudolph/PluginUpperCase) is a simple plugin to change all strings to upper case.
 
 ## Script plugins using PluginInterop
 
@@ -58,5 +58,5 @@ Next install the `PerseusR` package. Open R Studio and enter the instructions on
 
 Besides the plugin scripts in this repository you can check out:
 
-* [PluginDependentPeptides](https://github.com/jdrudolph/PluginDependentPeptides) a plugin for reading in the dependent peptide search
-  results. This plugin is a hybrid of C# code for passing parameters and a Python script for doing the processing.
+* [PluginDependentPeptides](https://github.com/jdrudolph/PluginDependentPeptides) is a plugin for reading the dependent peptide search
+  results into Perseus. This plugin is a hybrid of C# code for parameter passing and a Python script for the actual processing.
