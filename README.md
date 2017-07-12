@@ -18,6 +18,12 @@ Navigate to the [`/PluginTutorial`](PluginTutorial) folder for more information.
 
 See in [`PluginTutorial` README](PluginTutorial#requirements).
 
+### Example plugins
+
+Besides the plugin in this repository you can check out:
+
+* [PluginUpperCase](https://github.com/jdrudolph/PluginTutorial) simple plugin to change all strings to upper case.
+
 ## Script plugins using PluginInterop
 
 Recently we have started to develop a light-weight approach to plugin programming.
@@ -47,3 +53,10 @@ First install the latest version of [R](https://cran.rstudio.com/bin/windows/bas
 to additionally install [R Studio Desktop](https://www.rstudio.com/products/rstudio/download/).
 
 Next install the `PerseusR` package. Open R Studio and enter the instructions on the [website](https://github.com/jdrudolph/perseusr) into the running `R` session.
+
+### Example plugins
+
+Besides the plugin scripts in this repository you can check out:
+
+* [PluginDependentPeptides](https://github.com/jdrudolph/PluginDependentPeptides) a plugin for reading in the dependent peptide search
+  results. This plugin is a hybrid of C# code for passing parameters and a Python script for doing the processing.
