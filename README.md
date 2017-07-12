@@ -4,6 +4,10 @@ MQ Summer School tutorial for Perseus plugin development.
 The plugin development tutorial consists of two parts. Make sure
 to have all the requirements installed.
 
+## MaxQuant summer school plugin programming bootcamp
+
+[![YouTube](http://img.youtube.com/vi/-3oq9e_92lc/0.jpg)](http://www.youtube.com/watch?v=-3oq9e_92lc)
+
 ## C# plugin API
 
 Most functionality in Perseus is implemented in C#, by following the plugin API
